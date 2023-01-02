@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <div>
+        </div>
+        <div>
+            <input type="text" name="text" placeholder="enter text ">
+            <button>submit</button>
+        </div>
+    </form>
+</body>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+<script>
+<!--    const scoket = io.connect("http://a45b16e2d553.ngrok.io/");-->
+    const scoket = io.connect("http://13.234.154.194:5000");
+    scoket.on("connect",function(){
+    console.log("connected")
+        scoket.emit('send_message',{
+            username:"hello world !"
+        })
+    })
+</script>
+</html>
